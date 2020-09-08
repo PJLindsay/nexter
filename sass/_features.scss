@@ -3,13 +3,27 @@
 
   margin: 15rem 0;
 
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr)); // change from 3x2 to 2x3 when display narrows! (Without a media query)
-  grid-gap: 6rem;
-  align-items: start;
+  // only if browser supports CSS Grid
+  @supports(display: grid) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr)); // change from 3x2 to 2x3 when display narrows! (Without a media query)
+    grid-gap: 6rem;
+    align-items: start;
+  }
 }
 
 .feature {
+
+  // HACK code for old browsers that don't support CSS Grid
+  float: left;
+  width: 33.33333333%;
+  margin-bottom: 6rem;
+
+  // reset for browsers that support CSS Grid
+  @supports(display: grid) {
+    width: auto;
+    margin-bottom: 0;
+  }
 
   display: grid;
   grid-template-columns: min-content 1fr; // often define columns (never need to define rows)
