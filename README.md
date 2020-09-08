@@ -4,6 +4,8 @@
 ## Synopsis
 
 Realtor site using CSS Grid Layouts
+  - less media queries are needed
+  - very descriptive way to define grids
 
 ## Install
 
