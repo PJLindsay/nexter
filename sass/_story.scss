@@ -2,10 +2,53 @@
   &__pictures {
     background-color: $color-primary;
     grid-column: full-start / col-end 4;
+    background-image: linear-gradient(rgba($color-primary, .5),
+                      rgba($color-primary, .5)),
+                      url(../img/back.jpg); // up ../ from /css folder (where compiled style.css is)
+
+    display: grid;
+    // make 6x6 so we have have 4/6 for image with 1fr on each side of image
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  &__img--1 {
+    width: 100%;
+    grid-row: 2 / 6;
+    grid-column: 2 / 6;
+    box-shadow: 0 2rem 5rem rgba(#000, .1);
+  }
+
+  &__img--2 {
+    width: 115%;
+    grid-row: 4 / 6;
+    grid-column: 4 / 7;
+    z-index: 20; // make this not get cropped (overflow)
+    box-shadow: 0 2rem 5rem rgba(#000, .2);
   }
 
   &__content {
     background-color: $color-grey-light-1;
     grid-column: col-start 5 / full-end;
+
+    // viewport width units are very handy for making elements RESPONSIVE
+    padding: 6rem 8vw;
+
+    // - Flexbox approach - compare to CSS grid approach (below)
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+    // align-items: flex-start;
+
+    // CSS grid approach - compare to flexbox approach (above)
+    display: grid;
+    align-content: center;
+    justify-items: start;
+  }
+
+  &__text {
+    font-size: 1.5rem;
+    font-style: italic;
+    margin-bottom: 4rem; // story__text is not reusable element so we won't use helper class for margin-bottom
   }
 }
