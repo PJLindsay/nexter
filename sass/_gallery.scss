@@ -5,6 +5,11 @@
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   grid-template-rows: repeat(7, 5vw); // maintain aspect ratio when screen size changes (using 5%vw)
+
+  // shorthand way (putting rows / columns in ONE attribute) instead of grid-template-rows and grid-template-columns
+  // I don't like this -- it's too busy/too messy
+  // grid-template: repeat(8, 1fr) / repeat(7, 5vw);
+
   grid-gap: 1.5rem;
   padding: 1.5rem;
 
